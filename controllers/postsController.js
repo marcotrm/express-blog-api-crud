@@ -1,7 +1,7 @@
 const posts = require("../data/postsData");
 
 //index
-const index = index((req, res) => {
+function index(req, res){
     let postFilterd = posts;
     const { tags } = req.query;
 
@@ -12,10 +12,10 @@ const index = index((req, res) => {
     }
 
     res.json(postFilterd);
-});
+};
 
 //show
-const show = show((req, res) => {
+function show(req, res){
   const id = parseInt(req.params.id)
   const post = posts.find(post => post.id === id);
     if(!post){
@@ -27,22 +27,27 @@ const show = show((req, res) => {
       })
     }
     res.json(post)
-  })
+  };
 
 //store
-const store = store((req, res) => {
-    const postId = req.params.id
+function store(req, res){
+  res.send("Creazione di un nuovo post");
+ };
+
+//update
+function update(req, res){
+   const postId = req.params.id
       res.send(`Modifica integrale del post ${postId}`);
-  });
+  };
 
 //modify
-const modify = modify((req, res) => {
+function modify(req, res){
    const postId = req.params.id
     res.send(`Modifica parziale del post ${postId}`)
-  });
+  };
 
 //destroy
-const destroy = destroy((req, res) => {
+function destroy(req, res){
       const id = parseInt(req.params.id);
       const post = posts.find((post) => post.id === id);
       if (!post) {
@@ -56,6 +61,6 @@ const destroy = destroy((req, res) => {
       posts.splice(posts.indexOf(post), 1)
 
       res.sendStatus(204)
-  });
+  };
 
-module.exports = { index, show, update, modify, destroy}
+module.exports = { index, show, store, update, modify, destroy}

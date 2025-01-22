@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const posts = require('../data/postsData')
 const postsController = require('../controllers/postsController')
 
 // index
@@ -10,9 +9,7 @@ const postsController = require('../controllers/postsController')
   router.get('/:id', postsController.show) 
 
 // store
-  router.post('/', (req, res) => {
-   res.send('Creazione di un nuovo post');
-  });
+  router.post('/', postsController.store)
 
 // update
   router.put('/:id', postsController.update)
