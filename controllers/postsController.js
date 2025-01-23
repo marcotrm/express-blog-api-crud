@@ -49,9 +49,24 @@ function store(req, res){
 
 //update
 function update(req, res){
-   const postId = req.params.id
-      res.send(`Modifica integrale del post ${postId}`);
+  const id = parseInt(req.params.id);
+  const post = posts.find((post) => post.id === id);
+    if (!post) {
+      res.status(404);
+
+      return res.json({
+        error: "Not Found",
+        message: "Post Non Trovato",
+      });
+    }
   };
+
+  posts.titolo = req.body.titolo;
+  posts.contenuto = req.body.contenuto;
+  posts.immagine = req.body.immagine;
+  posts.tags = req.body.tags;
+
+  res.json(posts);
 
 //modify
 function modify(req, res){
