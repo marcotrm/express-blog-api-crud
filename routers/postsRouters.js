@@ -4,6 +4,8 @@ const postsController = require('../controllers/postsController')
 const validationParamId = require('../middlewares/validationParamId')
 const validationFound = require('../middlewares/validationFound')
 
+router.use(express.json())
+
 // index
   router.get('/', postsController.index)
 
@@ -11,7 +13,7 @@ const validationFound = require('../middlewares/validationFound')
   router.get('/:id', validationFound, validationParamId, postsController.show) 
 
 // store
-  router.post('/', validationFound, validationParamId, postsController.store)
+  router.post('/', postsController.store)
 
 // update
   router.put("/:id", validationFound, validationParamId, postsController.update);
