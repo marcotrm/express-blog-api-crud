@@ -16,16 +16,6 @@ function index(req, res){
 
 //show
 function show(req, res){
-  const id = parseInt(req.params.id)
-  const post = posts.find(post => post.id === id);
-    if(!post){
-      res.status(404)
-      
-      return res.json({
-        error: "Not Found",
-        message: "Post Non Trovato"
-      })
-    }
     res.json(post)
   };
 
@@ -49,17 +39,6 @@ function store(req, res){
 
 //update
 function update(req, res){
-  const id = parseInt(req.params.id);
-  const post = posts.find((post) => post.id === id);
-    if (!post) {
-      res.status(404);
-
-      return res.json({
-        error: "Not Found",
-        message: "Post Non Trovato",
-      });
-    }
-  };
 
   posts.titolo = req.body.titolo;
   posts.contenuto = req.body.contenuto;
@@ -67,19 +46,10 @@ function update(req, res){
   posts.tags = req.body.tags;
 
   res.json(posts);
+ };
 
 //modify
 function modify(req, res){
-    const id = parseInt(req.params.id);
-    const post = posts.find((post) => post.id === id);
-    if (!post) {
-      res.status(404);
-
-      return res.json({
-        error: "Not Found",
-        message: "Post Non Trovato",
-      });
-    }
 
     if (req.query.titolo) {
       posts.titolo = req.body.titolo;
@@ -99,16 +69,7 @@ function modify(req, res){
 
 //destroy
 function destroy(req, res){
-      const id = parseInt(req.params.id);
-      const post = posts.find((post) => post.id === id);
-      if (!post) {
-        res.status(404);
 
-        return res.json({
-          error: "Not Found",
-          message: "Post Non Trovato",
-        });
-      }
       posts.splice(posts.indexOf(post), 1)
 
       res.sendStatus(204)
