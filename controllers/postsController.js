@@ -40,31 +40,41 @@ function store(req, res){
 //update
 function update(req, res){
 
-  posts.titolo = req.body.titolo;
-  posts.contenuto = req.body.contenuto;
-  posts.immagine = req.body.immagine;
-  posts.tags = req.body.tags;
+  const id = parseInt(req.params.id);
+  const post = posts.find((post) => post.id === id);
 
-  res.json(posts);
+  post.titolo = req.body.titolo;
+  post.contenuto = req.body.contenuto;
+  post.immagine = req.body.immagine;
+  post.tags = req.body.tags;
+
+  console.log(post)
+
+  res.json(post);
  };
 
 //modify
 function modify(req, res){
 
-    if (req.query.titolo) {
-      posts.titolo = req.body.titolo;
+    const id = parseInt(req.params.id);
+    const post = posts.find((post) => post.id === id);
+
+    if (req.body.titolo) {
+      post.titolo = req.body.titolo;
     }
     if (req.body.contenuto){
-      posts.contenuto = req.body.contenuto
+      post.contenuto = req.body.contenuto
     } 
     if (req.body.immagine){
       post.immagine = req.body.immagine
     }
     if(req.body.tags){
-      posts.tags = req.body.tags
+      post.tags = req.body.tags
     }
 
-    res.json(posts)
+  console.log(post);
+
+    res.json(post)
   };
 
 //destroy
