@@ -70,8 +70,31 @@ function update(req, res){
 
 //modify
 function modify(req, res){
-   const postId = req.params.id
-    res.send(`Modifica parziale del post ${postId}`)
+    const id = parseInt(req.params.id);
+    const post = posts.find((post) => post.id === id);
+    if (!post) {
+      res.status(404);
+
+      return res.json({
+        error: "Not Found",
+        message: "Post Non Trovato",
+      });
+    }
+
+    if (req.query.titolo) {
+      posts.titolo = req.body.titolo;
+    }
+    if (req.body.contenuto){
+      posts.contenuto = req.body.contenuto
+    } 
+    if (req.body.immagine){
+      post.immagine = req.body.immagine
+    }
+    if(req.body.tags){
+      posts.tags = req.body.tags
+    }
+
+    res.json(posts)
   };
 
 //destroy
