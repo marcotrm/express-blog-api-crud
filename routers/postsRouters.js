@@ -3,8 +3,6 @@ const router = express.Router();
 const postsController = require('../controllers/postsController')
 const validationParamId = require('../middlewares/validationParamId')
 
-router.use(express.json())
-
 // index
   router.get('/', postsController.index)
 

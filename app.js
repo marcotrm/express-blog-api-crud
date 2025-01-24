@@ -15,6 +15,8 @@ app.get('/', (req, res) => {
   res.send('Server del mio blog')
 })
 
+app.use(express.json())
+
 //registro le rotte
 app.use("/posts", postsRouter)
 app.use(validationFound)
