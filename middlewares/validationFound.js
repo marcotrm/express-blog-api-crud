@@ -1,17 +1,10 @@
-const posts = require("../data/postsData");
-
-const validationFound = (req, res, next) =>{
-    const id = parseInt(req.params.id)
-    const post = posts.find(post => post.id === id);
-    if(!post){
-      res.status(404)
-      
-      return res.json({
-        error: "Not Found",
-        message: "Post Non Trovato"
-      })
-    }
-    next()
+function validationFound(req, res, next) {
+  res.status(404);
+  res.json({
+    error: "Not Found",
+    message: "Pagina non trovata",
+  });
 }
+module.exports = validationFound;
 
-module.exports = validationFound
+

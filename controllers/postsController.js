@@ -40,8 +40,16 @@ function store(req, res){
 //update
 function update(req, res){
 
-  const id = parseInt(req.params.id);
-  const post = posts.find((post) => post.id === id);
+    const id = parseInt(req.params.id)
+    const post = posts.find(post => post.id === id);
+    if(!post){
+      res.status(404)
+      
+      return res.json({
+        error: "Not Found",
+        message: "Post Non Trovato"
+      })
+    }
 
   post.titolo = req.body.titolo;
   post.contenuto = req.body.contenuto;
@@ -56,8 +64,16 @@ function update(req, res){
 //modify
 function modify(req, res){
 
-    const id = parseInt(req.params.id);
-    const post = posts.find((post) => post.id === id);
+    const id = parseInt(req.params.id)
+    const post = posts.find(post => post.id === id);
+    if(!post){
+      res.status(404)
+      
+      return res.json({
+        error: "Not Found",
+        message: "Post Non Trovato"
+      })
+    }
 
     if (req.body.titolo) {
       post.titolo = req.body.titolo;
@@ -79,6 +95,16 @@ function modify(req, res){
 
 //destroy
 function destroy(req, res){
+    const id = parseInt(req.params.id)
+    const post = posts.find(post => post.id === id);
+    if(!post){
+      res.status(404)
+      
+      return res.json({
+        error: "Not Found",
+        message: "Post Non Trovato"
+      })
+    }
 
       posts.splice(posts.indexOf(post), 1)
 
