@@ -1,42 +1,41 @@
 const posts = [
   {
     id: 1,
-    titolo: "I Benefici dell'Allenamento a Circuito",
-    contenuto:
-      "Scopri come l'allenamento a circuito può migliorare la tua forza e resistenza.",
-    immagine: "/img/pasta_barbabietola.jpeg",
-    tags: ["allenamento", "fitness", "salute"],
+    immagine: "https://example.com/margherita.jpg",
+    descrizione:
+      "La classica pizza italiana con pomodoro, mozzarella e basilico.",
+    ingredienti: ["Pomodoro", "Mozzarella", "Basilico", "Olio d'oliva"],
   },
   {
     id: 2,
-    titolo: "Ricetta di Smoothie Proteico",
-    contenuto:
-      "Una ricetta semplice e veloce per un delizioso smoothie proteico post-allenamento.",
-    immagine: "/img/ciambellone.jpeg",
-    tags: ["ricetta", "nutrizione", "proteine"],
+    immagine: "https://example.com/diavola.jpg",
+    descrizione: "Una pizza dal gusto piccante grazie al salamino piccante.",
+    ingredienti: ["Pomodoro", "Mozzarella", "Salame piccante", "Olio d'oliva"],
   },
   {
     id: 3,
-    titolo: "Guida all'HTML per Principianti",
-    contenuto: "Impara le basi di HTML per creare il tuo primo sito web.",
-    immagine: "/img/pane_fritto_dolce.jpeg",
-    tags: ["programmazione", "HTML", "web development"],
+    immagine: "https://example.com/4formaggi.jpg",
+    descrizione: "Un mix irresistibile di quattro formaggi.",
+    ingredienti: ["Mozzarella", "Gorgonzola", "Fontina", "Parmigiano"],
   },
   {
     id: 4,
-    titolo: "I Migliori Esercizi per i Bicipiti",
-    contenuto:
-      "Una selezione dei migliori esercizi per sviluppare bicipiti forti e definiti.",
-    immagine: "/img/cracker_barbabietola.jpeg",
-    tags: ["allenamento", "bicipiti", "muscoli"],
+    immagine: "https://example.com/capricciosa.jpg",
+    descrizione: "Una pizza ricca di sapori con prosciutto, funghi e carciofi.",
+    ingredienti: [
+      "Pomodoro",
+      "Mozzarella",
+      "Prosciutto cotto",
+      "Funghi",
+      "Carciofi",
+      "Olive",
+    ],
   },
   {
     id: 5,
-    titolo: "5 Consigli per Dormire Meglio",
-    contenuto:
-      "Suggerimenti pratici per migliorare la qualità del sonno e sentirsi più energici.",
-    immagine: "/img/torta_paesana.jpeg",
-    tags: ["salute", "benessere", "sonno"],
+    immagine: "https://example.com/napoletana.jpg",
+    descrizione: "La tradizionale pizza Napoletana con acciughe e capperi.",
+    ingredienti: ["Pomodoro", "Mozzarella", "Acciughe", "Capperi", "Origano"],
   },
 ];
 module.exports = posts;
