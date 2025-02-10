@@ -4,7 +4,7 @@ const posts = [
     name: "Margherita",
     ingredients: "Pomodoro, Mozzarella, Basilico",
     price: "€7.00",
-    image: "/img/margherita.jpg", // ✅ Percorso corretto
+    image: "/img/margherita.jpg",
   },
   {
     id: 2,
